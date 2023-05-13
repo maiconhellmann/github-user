@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomActionBar" parent="Widget.MaterialComponents.Light.ActionBar.Solid">
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="TextStyle.Title" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/appColorPrimary</item>
+    </style>
+
+    <style name="TextStyle.Title.Large">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="TextStyle.Title.Medium">
+        <item name="android:textSize">@dimen/font_medium</item>
+    </style>
+
+    <style name="TextStyle.Title.Small">
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="TextStyle.Title.Tiny">
+        <item name="android:textSize">@dimen/font_tiny</item>
+    </style>
+
+    <style name="TextStyle.Label" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/appColorSecondaryVariant</item>
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+</resources>

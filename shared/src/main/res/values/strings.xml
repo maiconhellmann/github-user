@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_timeout">Timeout - Please check your internet connection.</string>
+    <string name="error_no_connection">Unable to make a connection. Please check your internet.</string>
+    <string name="error_connection_shutdown">Connection shutdown. Please check your internet.</string>
+    <string name="error_server_unreachable">Server is unreachable, please try again later.</string>
+    <string name="error_empty_body">Empty body error.</string>
+</resources>

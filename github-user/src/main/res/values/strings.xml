@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search">Search User</string>
+    <string name="repositories">Repositories</string>
+    <string name="error_api_call">Error retrieving data from server</string>
+    <string name="title_user_detail">User Detail</string>
+    <string name="title_user_list">User List</string>
+</resources>

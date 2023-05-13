@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.cardview.widget.CardView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small">
+
+        <ImageView
+            android:id="@+id/repo_image_view"
+            android:layout_width="@dimen/icon_normal"
+            android:layout_height="@dimen/icon_normal"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_repository"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/repo_name_text_view"
+            style="@style/TextStyle.Title.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_tiny"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/repo_image_view"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Name / Ownder" />
+
+        <TextView
+            android:id="@+id/repo_description_text_view"
+            style="@style/TextStyle.Label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repo_name_text_view"
+            tools:text="A brief description" />
+
+        <TextView
+            android:id="@+id/stars_text_view"
+            style="@style/TextStyle.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:drawableLeft="@drawable/ic_baseline_star_outline_24"
+            android:gravity="center"
+            tools:text="193"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/repo_description_text_view" />
+
+        <TextView
+            android:id="@+id/forks_text_view"
+            style="@style/TextStyle.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_small"
+            android:drawableLeft="@drawable/ic_fork"
+            android:drawablePadding="@dimen/margin_tiny"
+            android:gravity="center"
+            tools:text="25"
+            app:layout_constraintStart_toEndOf="@id/stars_text_view"
+            app:layout_constraintTop_toBottomOf="@id/repo_description_text_view" />
+        <TextView
+            android:id="@+id/open_issues_text_view"
+            style="@style/TextStyle.Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_small"
+            android:drawablePadding="@dimen/margin_tiny"
+            android:gravity="center"
+            tools:text="300"
+            app:layout_constraintStart_toEndOf="@id/forks_text_view"
+            app:layout_constraintTop_toBottomOf="@id/repo_description_text_view"
+            app:drawableLeftCompat="@drawable/ic_bug" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

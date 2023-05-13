@@ -1,0 +1,65 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.maiconhellmann.shared'
+    compileSdk 33
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    defaultConfig {
+        minSdk 23
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    api 'androidx.core:core-ktx:1.9.0'
+    api 'androidx.appcompat:appcompat:1.5.1'
+    api 'com.google.android.material:material:1.7.0'
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    api "androidx.constraintlayout:constraintlayout:2.1.4"
+    api "androidx.recyclerview:recyclerview:1.2.1"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+    api "com.github.bumptech.glide:glide:4.14.2"
+
+    // Moshi
+    api "com.squareup.moshi:moshi-kotlin:1.14.0"
+
+    // Retrofit
+    api "com.squareup.retrofit2:retrofit:2.9.0"
+    api "com.squareup.retrofit2:converter-moshi:2.9.0"
+    api "com.squareup.okhttp3:logging-interceptor:4.2.1"
+
+    // Coroutines
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.2"
+
+    // Koin dependency injection
+    api "io.insert-koin:koin-core:3.2.2"
+    api "io.insert-koin:koin-ktor:3.2.2"
+    api "io.insert-koin:koin-android:3.3.0"
+}
