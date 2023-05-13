@@ -75,7 +75,8 @@ class UserListActivity : AppCompatActivity() {
     }
 
     private fun setLoading(isLoading: Boolean) {
-        binding.loadingView.isVisible = isLoading
+        binding.shimmerViewContainer.isVisible = isLoading
+        binding.recyclerView.isVisible = !isLoading
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
