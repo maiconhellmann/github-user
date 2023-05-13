@@ -1,10 +1,10 @@
 package com.maiconhellmann.github_user.feature.detail
 
-import android.R
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.maiconhellmann.github_user.databinding.ActivityUserDetailBinding
@@ -28,7 +28,7 @@ class UserDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         title = getString(com.maiconhellmann.github_user.R.string.title_user_detail)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding = ActivityUserDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -85,6 +85,7 @@ class UserDetailActivity : AppCompatActivity() {
 
     private fun showUserErrorMessage(error: ErrorStateView.UiModel) {
         with(binding.userErrorStateViw) {
+            isVisible = true
             loadModel(error)
             setOnClickListener { viewModel.onErrorViewClick() }
         }
@@ -95,7 +96,11 @@ class UserDetailActivity : AppCompatActivity() {
     }
 
     private fun setUserLoading(isLoading: Boolean) {
-        //binding.loadingView.isVisible = isLoading
+        binding.shimmerUserViewContainer.isVisible = isLoading
+
+        binding.avatarImageView.isInvisible = isLoading
+        binding.login.isInvisible = isLoading
+        binding.name.isInvisible = isLoading
     }
 
     private fun setRepositoriesErrorViewVisibility(isVisible: Boolean) {
@@ -112,7 +117,7 @@ class UserDetailActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.home) {
+        if (item.itemId == android.R.id.home) {
             viewModel.onBackPressed()
             return true
         }
