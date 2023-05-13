@@ -51,7 +51,7 @@ class UserDetailActivity : AppCompatActivity() {
 
         when (viewState) {
             is ViewState.Error -> {
-                // TODO
+                showErrorMessage(viewState.error)
             }
             is ViewState.Success -> {
                 adapter.submitList(viewState.state)
@@ -68,7 +68,7 @@ class UserDetailActivity : AppCompatActivity() {
 
         when (viewState) {
             is ViewState.Error -> {
-                showUserErrorMessage(viewState.error)
+                showErrorMessage(viewState.error)
             }
             is ViewState.Success -> {
                 with(binding) {
@@ -83,7 +83,13 @@ class UserDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun showUserErrorMessage(error: ErrorStateView.UiModel) {
+    private fun showErrorMessage(error: ErrorStateView.UiModel) {
+        binding.avatarImageView.isVisible = false
+        binding.login.isVisible = false
+        binding.name.isVisible = false
+        binding.recyclerView.isVisible = false
+        binding.sectionRepositories.isVisible = false
+
         with(binding.userErrorStateViw) {
             isVisible = true
             loadModel(error)
