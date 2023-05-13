@@ -8,6 +8,8 @@ import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.maiconhellmann.github_user.databinding.ActivityUserDetailBinding
+import com.maiconhellmann.github_user.feature.detail.component.UserRepositoryCardView
+import com.maiconhellmann.github_user.shared.repository.model.UserDetail
 import com.maiconhellmann.shared.components.ErrorStateView
 import com.maiconhellmann.shared.viewmodel.ViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,7 +34,8 @@ class UserDetailActivity : AppCompatActivity() {
 
         binding.recyclerView.adapter = adapter
 
-        viewModel.viewStateLiveData.observe(this) { handleViewState(it) }
+        viewModel.userDetailViewState.observe(this) { handleUserDetailState(it) }
+        viewModel.repositoriesViewState.observe(this) { handleRepositoriesState(it) }
         viewModel.navigation.observe(this) { handleNavigation(it) }
     }
 
@@ -42,42 +45,66 @@ class UserDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun handleViewState(viewState: ViewState<UserDetailViewModel.State, ErrorStateView.UiModel>) {
-        setLoading(viewState.isLoading())
-        setErrorViewVisibility(viewState.isError())
+    private fun handleRepositoriesState(viewState: ViewState<List<UserRepositoryCardView.UiModel>, ErrorStateView.UiModel>) {
+        setRepositoriesLoading(viewState.isLoading())
+        setRepositoriesErrorViewVisibility(viewState.isError())
 
         when (viewState) {
             is ViewState.Error -> {
-                showErrorMessage(viewState.error)
+                // TODO
+            }
+            is ViewState.Success -> {
+                adapter.submitList(viewState.state)
+            }
+            ViewState.Loading -> {
+                // N / A
+            }
+        }
+    }
+
+    private fun handleUserDetailState(viewState: ViewState<UserDetail, ErrorStateView.UiModel>) {
+        setUserLoading(viewState.isLoading())
+        setUserErrorViewVisibility(viewState.isError())
+
+        when (viewState) {
+            is ViewState.Error -> {
+                showUserErrorMessage(viewState.error)
             }
             is ViewState.Success -> {
                 with(binding) {
                     login.text = viewState.state.login
                     name.text = viewState.state.name
                     Glide.with(avatarImageView)
-                        .load(viewState.state.avatarUrl)
+                        .load(viewState.state.avatarURL)
                         .into(avatarImageView)
-
-                    adapter.submitList(viewState.state.repositoryUiModelList)
                 }
             }
             ViewState.Loading -> {} // NA
         }
     }
 
-    private fun showErrorMessage(error: ErrorStateView.UiModel) {
-        with(binding.errorStateViw) {
+    private fun showUserErrorMessage(error: ErrorStateView.UiModel) {
+        with(binding.userErrorStateViw) {
             loadModel(error)
             setOnClickListener { viewModel.onErrorViewClick() }
         }
     }
 
-    private fun setErrorViewVisibility(isVisible: Boolean) {
-        binding.errorStateViw.isVisible = isVisible
+    private fun setUserErrorViewVisibility(isVisible: Boolean) {
+        binding.userErrorStateViw.isVisible = isVisible
     }
 
-    private fun setLoading(isLoading: Boolean) {
-        binding.loadingView.isVisible = isLoading
+    private fun setUserLoading(isLoading: Boolean) {
+        //binding.loadingView.isVisible = isLoading
+    }
+
+    private fun setRepositoriesErrorViewVisibility(isVisible: Boolean) {
+        binding.userErrorStateViw.isVisible = isVisible
+    }
+
+    private fun setRepositoriesLoading(isLoading: Boolean) {
+        binding.recyclerView.isVisible = !isLoading
+        binding.shimmerRepoViewContainer.isVisible = isLoading
     }
 
     private fun onClickRepo(id: Long) {
