@@ -4,9 +4,9 @@ import org.koin.core.qualifier.Qualifier
 import org.koin.core.qualifier.QualifierValue
 
 /**
- * Enum that holds API URLs. In a real scenario this could come from many different sources like build files,
- * system variables, strings.xml or any other dynamic source instead of a simple static class.
- */
+ * Enumeração que armazena URLs da API. Em um cenário real, isso pode vir de várias fontes diferentes, como arquivos de construção,
+ * variáveis de sistema, strings.xml ou qualquer outra fonte dinâmica, em vez de uma simples classe estática.
+ * */
 enum class ApiUrlEnum(val baseUrl: String) : Qualifier {
     GITHUB("https://api.github.com");
 

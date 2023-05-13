@@ -6,12 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.maiconhellmann.github_user.feature.list.UserListActivity
 
 /**
- * Empty main activity. Normally that's the activity that starts the navigation framework and redirects to
- * the first screen of the app, that could be an Activity or a Fragment depending on how the engineers define.
+ * Activity principal vazia. Normalmente, esta é a Activity que inicia o framework de navegação e redireciona para
+ * a primeira tela do aplicativo, que pode ser uma Activity ou um Fragment, dependendo de como os engenheiros definem.
  */
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         startActivity(Intent(this, UserListActivity::class.java))
+        finish()
     }
 }

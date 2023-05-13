@@ -13,7 +13,7 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
 /**
- * Interceptor responsible for handling exceptions and giving a proper error message to them.
+ * Interceptor responsável por lidar com exceções e fornecer uma mensagem de erro apropriada para elas.
  */
 class OkHttpExceptionInterceptor(
     private val stringProvider: StringProvider,

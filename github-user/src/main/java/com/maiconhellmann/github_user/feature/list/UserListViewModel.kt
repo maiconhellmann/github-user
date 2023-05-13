@@ -11,6 +11,14 @@ import com.maiconhellmann.shared.components.ErrorStateView
 import com.maiconhellmann.shared.viewmodel.ViewState
 import kotlinx.coroutines.launch
 
+/**
+ * ViewModel responsável por listar os usuários do GitHub.
+ *
+ * Este ViewModel coordena as ações relacionadas à exibição da lista de usuários do GitHub.
+ * Ele utiliza o repositório apropriado para obter os dados necessários.
+ *
+ * @param userRepository Repositório responsável por lidar com as operações relacionadas aos usuários.
+ */
 class UserListViewModel(
     private val userRepository: UserRepository,
 ) : ViewModel() {

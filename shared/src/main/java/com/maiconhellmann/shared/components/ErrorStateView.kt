@@ -9,8 +9,8 @@ import com.maiconhellmann.shared.R
 import com.maiconhellmann.shared.databinding.ViewErrorStateBinding
 
 /**
- * Displays an image view and a text view that represents an error.
- * It can be used as an empty state as well as a retry feature.
+ * Exibe uma imagem e um texto que representam um erro.
+ * Pode ser usado como um estado vazio ou como uma opção de tentar novamente.
  */
 class ErrorStateView : ConstraintLayout {
     constructor(context: Context) : super(context)

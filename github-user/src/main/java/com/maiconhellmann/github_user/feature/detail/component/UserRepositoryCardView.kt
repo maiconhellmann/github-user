@@ -6,7 +6,12 @@ import android.view.LayoutInflater
 import androidx.cardview.widget.CardView
 import com.maiconhellmann.github_user.databinding.ViewRepositoryCardBinding
 
-
+/**
+ * Componente que exibe informações de um repositório do usuário.
+ *
+ * Este componente exibe informações sobre um repositório do usuário, como o nome do repositório,
+ * a descrição, a quantidade de estrelas, a quantidade de forks e o número de issues abertas.
+ */
 class UserRepositoryCardView : CardView {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)

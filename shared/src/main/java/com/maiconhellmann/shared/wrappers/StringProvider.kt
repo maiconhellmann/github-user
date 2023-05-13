@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.annotation.StringRes
 
 /**
- * A wrapper class to provide Literals(from strings.xml) to any class without directly using Android SDK.
- * This approach is required for unit testes to avoid mocking/stubbing Android classes.
+ * Uma classe wrapper para fornecer literais (de strings.xml) a qualquer classe sem usar diretamente o SDK do Android.
+ * Esta abordagem é necessária para testes unitários a fim de evitar a simulação ou substituição de classes do Android.
  */
 interface StringProvider {
     fun getString(@StringRes resId: Int): String

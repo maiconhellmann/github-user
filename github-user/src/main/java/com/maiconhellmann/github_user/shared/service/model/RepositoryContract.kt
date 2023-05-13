@@ -2,6 +2,11 @@ package com.maiconhellmann.github_user.shared.service.model
 
 import com.squareup.moshi.Json
 
+/**
+ * Contrato de repositório obtido do servidor.
+ * Esta classe representa as informações de um repositório obtido do servidor do GitHub.
+ *
+ * */
 data class RepositoryContract(
     val id: Long?,
     val name: String?,

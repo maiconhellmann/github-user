@@ -4,14 +4,14 @@ import retrofit2.Response
 import kotlin.Error
 
 /**
- * RepositoryResult encapsulates a result type in order to make it easier to handle api service results.
+ * RepositoryResult encapsula um tipo de resultado para facilitar o manuseio dos resultados de serviços de API.
  */
 sealed class RepositoryResult<T> {
     data class Success<T>(val result: T) : RepositoryResult<T>()
     data class Error<Nothing>(val errorCode: Int?, val errorMessage: String?) : RepositoryResult<Nothing>()
 
     /**
-     * Execute a block of code when the result is a success
+     * Executa um block de código quando o resultado é sucesso
      */
     fun whenSuccess(block: (T) -> Unit): RepositoryResult<T> {
         if (this is Success) {
@@ -21,7 +21,7 @@ sealed class RepositoryResult<T> {
     }
 
     /**
-     * Execute a block of code when the result is an error
+     * xecuta um block de código quando o resultado é erro
      */
     fun whenError(block: (String) -> Unit): RepositoryResult<T> {
         if (this is Error) {
@@ -35,8 +35,8 @@ sealed class RepositoryResult<T> {
 }
 
 /**
- * Helper extension function to run a block of code when the result was a success.
- * Returns either a [RepositoryResult.EmptyBody] or a [RepositoryResult.Error] otherwise.
+ * Função de extensão auxiliar para executar um bloco de código quando o resultado for bem-sucedido.
+ * Retorna um [RepositoryResult.EmptyBody] ou um [RepositoryResult.Error] caso contrário.
  */
 fun <T, D> Response<D>.whenSuccess(block: (D) -> T): RepositoryResult<T> {
     if (this.isSuccessful) {

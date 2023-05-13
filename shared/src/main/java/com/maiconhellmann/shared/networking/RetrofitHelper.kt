@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 /**
- * Creates a retrofit client for a given base URL.
+ * Cria um cliente Retrofit para uma URL base específica.
  */
 object RetrofitHelper {
     fun createRetrofitClient(

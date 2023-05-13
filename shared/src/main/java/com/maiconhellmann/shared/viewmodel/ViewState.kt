@@ -1,7 +1,7 @@
 package com.maiconhellmann.shared.viewmodel
 
 /**
- * Represents a ViewState to be observed by Activities/Fragments.
+ * Representa a ViewState para ser observado por Activities/Fragments.
  */
 sealed class ViewState<out T, out E> {
     object Loading : ViewState<Nothing, Nothing>()

@@ -1,6 +1,6 @@
 package com.maiconhellmann.shared.networking.exception
 
 /**
- * Specific exception when an Empty Body is returned by a service API.
+ * Exceção específica quando um corpo vazio é retornado por uma API de serviço.
  */
 class EmptyResponseBodyException : Exception()

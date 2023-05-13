@@ -12,6 +12,16 @@ import com.maiconhellmann.shared.viewmodel.ViewState
 import com.maiconhellmann.shared.wrappers.StringProvider
 import kotlinx.coroutines.launch
 
+/**
+ * ViewModel responsável por recuperar os detalhes do usuário e seus repositórios.
+ *
+ * Este ViewModel coordena as ações relacionadas à exibição dos detalhes do usuário e de seus repositórios.
+ * Ele utiliza os repositórios e serviços adequados para obter os dados necessários.
+ *
+ * @param login Login(username) do usuário selecionado
+ * @param repository Repositório do usuario
+ * @param stringProvider Utilitário para obter strings indiretamente do Android para que seja testável.
+ * */
 class UserDetailViewModel(
     private val login: String,
     private val repository: UserRepository,

@@ -7,6 +7,12 @@ import androidx.cardview.widget.CardView
 import com.bumptech.glide.Glide
 import com.maiconhellmann.github_user.databinding.ViewUserCardBinding
 
+/**
+ * Componente que exibe informações resumidas de um usuário.
+ *
+ * Este componente exibe uma visualização compacta com informações básicas de um usuário do GitHub,
+ * como o nome de usuário e a foto de perfil.
+ */
 class UserCardView : CardView {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
